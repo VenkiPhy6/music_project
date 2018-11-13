@@ -39,7 +39,7 @@ for i in var1_traj:
             continue
 
 print("offset_list:\n:",var1_offset_list_part1[0:24])
-i=0
+
 for i in range(len(cp_notes_part1)):
     cp_notes_part1[i].offset = var1_offset_list_part1[i]
 
