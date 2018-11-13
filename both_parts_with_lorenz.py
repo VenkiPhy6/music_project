@@ -17,8 +17,6 @@ for i in full_part1.getElementsByClass(m21.stream.Part)[0].getElementsByClass(m2
 for i in og_notes_part1:
     i.offset = i.getOffsetInHierarchy(full_part1)
 
-print("Offset of part 1 OG:\n", [og_notes_part1[i].offset for i in range(12)])
-
 full1_part1 = m21.converter.parse('bwv846.mxl')
 cp_notes_part1 = []
 for i in full1_part1.getElementsByClass(m21.stream.Part)[0].getElementsByClass(m21.stream.Measure):
@@ -44,8 +42,8 @@ for i in var1_traj:
 for i in range(len(var1_offset_list_part1)):
     cp_notes_part1[i].offset = var1_offset_list_part1[i]
 
-og_part1 = m21.stream.Part(og_notes_part1, id='part1').makeMeasures()
-shuffled_part1 = m21.stream.Part(cp_notes_part1, id='part1').makeMeasures()
+og_part1 = m21.stream.Part(og_notes_part1, id='part1')
+shuffled_part1 = m21.stream.Part(cp_notes_part1, id='part1')
 
 
 ####################################
@@ -62,8 +60,7 @@ for i in full_part2.getElementsByClass(m21.stream.Part)[1].getElementsByClass(m2
 
 for i in og_notes_part2:
     i.offset = i.getOffsetInHierarchy(full_part2)
-
-print("Offset of part 2 OG:\n", [og_notes_part2[i].offset for i in range(6)])
+og_notes_part2.insert(0, bass)
 
 full1_part2 = m21.converter.parse('bwv846.mxl')
 cp_notes_part2 = []
@@ -93,8 +90,8 @@ for i in range(len(cp_notes_part2)):
 cp_notes_part2.insert(0, bass)
 
 
-og_part2 = m21.stream.Part(og_notes_part2).makeMeasures()
-shuffled_part2 = m21.stream.Part(cp_notes_part2).makeMeasures()
+og_part2 = m21.stream.Part(og_notes_part2)
+shuffled_part2 = m21.stream.Part(cp_notes_part2)
 
 ##################################
 
