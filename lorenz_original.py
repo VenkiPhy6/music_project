@@ -33,10 +33,11 @@ for i in tpoints:
     k4 = h*func(r + k3, i + h)
     r += (k1 + (2*k2) + (2*k3) + k4)/6
 
+print(xpoints)
 """plt.plot(tpoints, xpoints, 'b')
 plt.hold
 plt.plot(tpoints, ypoints, 'r')
-plt.hold"""
+plt.hold
 plt.plot(xpoints, zpoints)
 plt.grid()
-plt.show()
+plt.show()"""
