@@ -32,7 +32,7 @@ cp_refer_notes_part1 = refer_notes_part1.copy()
 shuffled_notes_part1 = []
 for i in var_traj:
     for j in cp_refer_notes_part1:
-        if((j[0] > i and abs(j[0] - i) > 10**(-3)) or abs(j[0]-i) <= 10**(-6)):
+        if((j[0] > i and abs(j[0] - i) >= 10**(-3)) or abs(j[0]-i) <= 10**(-6)):
             shuffled_notes_part1.append(j[1])
             cp_refer_notes_part1.remove(j)
             break
@@ -74,7 +74,7 @@ cp_refer_notes_part2 = refer_notes_part2.copy()
 shuffled_notes_part2 = []
 for i in var_traj:
     for j in cp_refer_notes_part2:
-        if((j[0] > i and abs(j[0] - i) > 10**(-3)) or abs(j[0]-i) <= 10**(-6)):
+        if((j[0] > i and abs(j[0] - i) >= 10**(-3)) or abs(j[0]-i) <= 10**(-6)):
             shuffled_notes_part2.append(j[1])
             cp_refer_notes_part2.remove(j)
             break
@@ -95,8 +95,9 @@ part2 = part2
 
 #Creating the variant
 variant = m21.stream.Stream([part1, part2])
-for i in [0,1,2,3,4,7]:
-    variant.insert(0.0, original[i])
+#for i in [0,1,2,3,4,7]:
+ #   variant.insert(0.0, original[i])
 variant.show('musicxml')
 
 #Analysis
+#print("Method 2, Part2, Offsets:", offsets_part2)
