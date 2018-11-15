@@ -33,5 +33,6 @@ def Lorenz(start,end,step_count,initial, sigma=10, R=28, b_param=8/3):
     
     return xpoints
     #plt.plot(xpoints, zpoints)
+    #plt.title(f"IC: {initial}")
     #plt.grid()
     #plt.show()

@@ -103,12 +103,12 @@ variant.show('musicxml')
 masker_part1 = []
 for i in range(len(offsets_part1)):
     masker_part1.append(offsets_part1[i] == notes_part1[i].offset)
-masker_part2 = []
-for i in range(len(offsets_part2)):
-    masker_part2.append(offsets_part2[i] == notes_part2[i].offset)
+#masker_part2 = []
+#for i in range(len(offsets_part2)):
+#    masker_part2.append(offsets_part2[i] == notes_part2[i].offset)
     
 print("IC:", initial_condition)
 print("Are there variations in part 1?", not(all([masker_part1[i] for i in range(len(masker_part1))])))
 print(f"Number of non-variants in part 1 out of {len(notes_part1)} notes:", sum(masker_part1))
-print("Are there variations in part 2?", not(all([masker_part2[i] for i in range(len(masker_part2))])))
-print(f"Number of non-variants in part 2 out of {len(notes_part2)} notes:", sum(masker_part2))
+#print("Are there variations in part 2?", not(all([masker_part2[i] for i in range(len(masker_part2))])))
+#print(f"Number of non-variants in part 2 out of {len(notes_part2)} notes:", sum(masker_part2))
