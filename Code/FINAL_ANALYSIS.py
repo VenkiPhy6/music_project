@@ -14,37 +14,37 @@ refer01 = var.variant_gen(np.array([1.0,1.0,1.0]), measures_count)[1]
 #refer21, var21= t2n.variant_gen(np.array([1.0,1.0,1.0]), measures_count)
 
 ############
-
+"""
 #RESULT0
-var11= var.variant_gen(np.array([.999,1.0,1.0]), measures_count)[1]
+var1= var.variant_gen(np.array([.999,1.0,1.0]), measures_count)[1]
 plt.plot([i for i in range(len(refer01))], [refer01[i][1].pitch.frequency for i in range(len(refer01))])
 plt.hold
-plt.plot([i for i in range(len(var11))], [var11[i][1].pitch.frequency for i in range(len(refer01))])
+plt.plot([i for i in range(len(var1))], [var1[i][1].pitch.frequency for i in range(len(refer01))])
 plt.ylabel("Pitch frequency")
-plt.xlabel("Pitch frequency")
+plt.xlabel("Pitch index")
 plt.grid()
 plt.show()
 plt.title("Result1: Not all the pitches have changed. The variant still sounds a bit like the reference.")
-
-############
 """
+############
+
 #RESULT1
 non_variants_count_list = []
-for i in range(2, 31):
-    var = t2n.variant_gen(np.array([i,1.0,1.0]), measures_count)[1]
+for i in np.arange(-10,10+.1,.1):
+    var2 = var.variant_gen(np.array([i,1.0,1.0]), measures_count)[1]
     non_variants_count = 0
-    for i in  [abs(refer01[i][1].pitch.frequency - var[i][1].pitch.frequency) for i in range(len(refer01))]:
+    for i in [abs(refer01[i][1].pitch.frequency - var2[i][1].pitch.frequency) for i in range(len(refer01))]:
         if i <= 10**-6:
             non_variants_count += 1
     non_variants_count_list.append(non_variants_count)
 
-plt.plot([i for i in range(2,31)], non_variants_count_list)
+plt.plot([i for i in np.arange(-10,10+.1,.1)], non_variants_count_list)
 plt.ylabel("Number of non variants")
 plt.xlabel("Initial condition of x")
 plt.grid()
 plt.show()
-plt.title("Result2: Number of variants doesn't just increase as you get away from reference")
-"""
+plt.title("Result2: Number of non variants doesn't just decrease as you get away from reference")
+
 #############
 
 #print(number_of_variants01)

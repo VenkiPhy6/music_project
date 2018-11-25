@@ -50,7 +50,7 @@ def variant_gen(initial_condition, measures_needed = 11, N=5000):
 
     #Creating the variant
     variant = m21.stream.Stream(part1)
-    variant.show('musicxml')
+    #variant.show('musicxml')
     return refer_notes_part1, var_notes_part1
 
 
