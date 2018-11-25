@@ -2,11 +2,11 @@ def variant_gen(initial_condition, measures_needed = 11, N=5000):
     import music21 as m21
     import numpy as np
     import creating_lorenz as lorenz
-    
+
     #########################
 
-    refer_traj = lorenz.Lorenz(0,50,N,np.array([1.0,1.0,1.0]))
-    var_traj = lorenz.Lorenz(0,50,N,initial_condition)
+    refer_traj = [round(i, 3) for i in lorenz.Lorenz(0,50,N,np.array([1.0,1.0,1.0]))]
+    var_traj = [round(i, 3) for i in lorenz.Lorenz(0,50,N,initial_condition)]
 
     def takeSecond(elem):
         return elem[1]
@@ -31,7 +31,7 @@ def variant_gen(initial_condition, measures_needed = 11, N=5000):
     shuffled_notes_part1 = []
     for i in var_traj:
         for j in cp_refer_notes_part1:
-            if((j[0] > i and abs(j[0] - i) >= 10**(-3)) or abs(j[0]-i) <= 10**(-6)):
+            if((j[0] > i and abs(j[0] - i) > 10**(-2)) or abs(j[0]-i) <= 10**(-3)):
                 shuffled_notes_part1.append(j[1])
                 cp_refer_notes_part1.remove(j)
                 break
@@ -52,18 +52,3 @@ def variant_gen(initial_condition, measures_needed = 11, N=5000):
     variant = m21.stream.Stream(part1)
     #variant.show('musicxml')
     return refer_notes_part1, var_notes_part1
-
-
-    """masker_part1 = []
-    for i in range(len(offsets_part1)):
-        masker_part1.append(abs(shuffled_notes_part1[i].pitch.frequency == notes_part1[i].pitch.frequency) <= 10**-6)
-    #masker_part2 = []
-    #for i in range(len(offsets_part2)):
-     #   masker_part2.append(offsets_part2[i] == notes_part2[i].offset)
-    
-    print("IC:", initial_condition)
-    print("Are there variations in part 1?", not(all([masker_part1[i] for i in range(len(masker_part1))])))
-    print(f"Number of non-variants in part 1 out of {len(notes_part1)} notes:", sum(masker_part1))
-    #print("Are there variations in part 2?", not(all([masker_part2[i] for i in range(len(masker_part2))])))
-    #print(f"Number of non-variants in part 2 out of {len(notes_part2)} notes:", sum(masker_part2))"""
-    
