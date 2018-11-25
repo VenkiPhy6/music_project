@@ -1,7 +1,7 @@
 def Lorenz(start,end,step_count,initial, sigma=10, R=28, b_param=8/3):
     #import matplotlib.pyplot as plt
-    import numpy as np
-
+    import numpy as np;
+    #start = 0;end= 30;step_count = 3000;initial = np.array([1.0,1.0,1.0]); sigma=10; R=28; b_param=8/3;
     def func(r, t):
         x = r[0]
         y = r[1]
