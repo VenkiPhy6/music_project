@@ -10,8 +10,10 @@ $$\begin{align}
 $$ 
 
 ##Symbolic dynamics
-Symbolic Dynamics is a technique of studying dynamics of a system. Here we chop up the dynamical trajectories of a system into discrete pieces and attach to each piece, a symbol. Now based on the sequences of the symbol created by the trajetory we describe the dynamics of the system. 
+Symbolic Dynamics is a technique of studying dynamics of a system. Here we chop up the dynamical trajectories of a system into discrete pieces and attach to each piece, a symbol. Now based on the sequences of the symbols created by the trajetory we describe the dynamics of the system. 
 
 Herein arises the motivation for this project: **Use symbolic dynamics on Chaotic Attractors**. Here, we have used pithces from a musical piece as our symbols. But note that any context dependent sequence of data can be used.  Further we have used the Lorenz attractor, though any other 'Strange Attractor' can also be used. 
 
 #Implementation details
+##Obtaining the Lorenz attractor
+To obtain the Lorenz attractor, we solve the aforementioned equations using the 4th order Runge Kutta solver. We
